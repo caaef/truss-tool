@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Truss Tool",
-  description: "Truss Tool - by jedrzejdubial @ Github"
+  description: "Truss Tool - by caaef @ Github"
 };
 
 export default function RootLayout({

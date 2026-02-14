@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Button from "@/app/components/Button";
 import Truss from "@/app/components/Truss";
 import Dialog from "@/app/components/Dialog";
-import { ArrowLeft, Info, DownloadSimple, Plus } from "@phosphor-icons/react";
+import { ArrowLeftIcon, InfoIcon, DownloadSimpleIcon, PlusIcon } from "@phosphor-icons/react";
 import { generateId } from "@/app/utils/math";
 import list from "@/public/list.json";
 import Image from "next/image";
@@ -70,15 +70,15 @@ export default function NewProject() {
   return (
     <>
       <nav className="nav_left gap-3 mb-4">
-        <Button title="Go back" icon={ArrowLeft} path="/" />
-        <Button title="Show details" icon={Info} onClick={() => detailsDialog.current?.showModal()} />
-        <Button title="Download an image of current canvas" icon={DownloadSimple} />
+        <Button title="Go back" icon={ArrowLeftIcon} path="/" />
+        <Button title="Show details" icon={InfoIcon} onClick={() => detailsDialog.current?.showModal()} />
+        <Button title="Download an image of current canvas" icon={DownloadSimpleIcon} />
       </nav>
 
       {/* Display only when there's no truss */}
       {trusses.length === 0 && 
       <div className="flex flex-col flex-1 items-center justify-center gap-3">
-        <Button icon={Plus} onClick={() => elementsDialog.current?.showModal()} />
+        <Button icon={PlusIcon} onClick={() => elementsDialog.current?.showModal()} />
         <p>Start your project by adding the first truss</p>
       </div>}
 
