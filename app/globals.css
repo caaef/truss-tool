@@ -17,36 +17,10 @@ body {
   padding: 0.75rem;
 }
 
-h1 {
-  font-size: 1.875rem; /* 30px */
-  line-height: 2.25rem; /* 36px */
-  font-weight: 600;
-}
-
-h2 {
-  font-size: 1.25rem; /* 20px */
-  line-height: 1.75rem; /* 28px */
-  font-weight: 500;
-}
-
-a {
-  color: rgb(59 130 246);
-}
-
-.nav_left {
-  display: flex;
-}
-
-.nav_right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.account_button {
-  background-color: var(--gray);
-  margin-top: 20px;
-  padding: 12px 24px;
-  border-radius: 12px;
+@layer base {
+  h1 { @apply text-3xl font-semibold }
+  h2 { @apply text-xl font-medium }
+  a { @apply text-blue-400 }
 }
 
 .no-scrollbar {

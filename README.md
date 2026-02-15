@@ -1,5 +1,7 @@
 # Truss Tool
 
-This is a web app for creating and managing both simple and advanced truss projects.
+Truss Tool is an app for managing advanced truss projects. It helps to organize and analyze complex truss systems efficiently in a web interface.
 
-This project is built using Next.js with React.
+## Tech stack
+- Next.js
+- React

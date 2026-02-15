@@ -1,6 +1,6 @@
 import { forwardRef, ReactNode, Ref, RefObject } from "react";
 import Button from "@/app/components/Button";
-import { X } from "@phosphor-icons/react";
+import { XIcon } from "@phosphor-icons/react";
 
 interface DialogProps {
   title: string,
@@ -13,7 +13,7 @@ const Dialog = forwardRef(({ title, children }: DialogProps, ref: Ref<HTMLDialog
       <div className="flex justify-between">
         <h1>{title}</h1>
         <Button 
-          title="Go back" icon={X} 
+          title="Go back" icon={XIcon} 
           onClick={() => (ref as RefObject<HTMLDialogElement>).current?.close()} />
       </div>
 

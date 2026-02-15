@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Button from "@/app/components/Button";
-import { ArrowClockwise, TrashSimple } from "@phosphor-icons/react";
+import { ArrowClockwiseIcon, TrashSimpleIcon } from "@phosphor-icons/react";
 
 interface TrussElement {
   width: number;
+  height: number;
   top: number;
   left: number;
   onRemove?: () => void;
@@ -11,7 +12,7 @@ interface TrussElement {
   onEdgeLeft: () => void;
 }
 
-export default function Truss({ width, top, left, onRemove, onEdgeRight, onEdgeLeft }: TrussElement) {
+export default function Truss({ width, height, top, left, onRemove, onEdgeRight, onEdgeLeft }: TrussElement) {
   const [controls, setControls] = useState(false);
   const [rotation, setRotation] = useState(0);
 
@@ -20,14 +21,15 @@ export default function Truss({ width, top, left, onRemove, onEdgeRight, onEdgeL
   }
 
   return (
-    <div className="Truss" style={{width: width + 10, height: "62px", position: "absolute", left: left, top: top, rotate: `${rotation}deg`}}>
+    <div className="Truss" style={{width: width + 10, height: height + 29, position: "absolute", left: left, top: top, rotate: `${rotation}deg`}}>
       <div className={`absolute top-0 left-0 right-0 flex justify-center gap-1 h-[29px] ${controls ? '' : 'hidden'}`}>
-        <Button title="Rotate" icon={ArrowClockwise} width="29px" height="29px" iconSize={15} onClick={rotate} />
-        <Button title="Remove" icon={TrashSimple} width="29px" height="29px" iconSize={15} onClick={onRemove} />
+        <Button title="Rotate" icon={ArrowClockwiseIcon} width="29px" height="29px" iconSize={15} onClick={rotate} />
+        <Button title="Remove" icon={TrashSimpleIcon} width="29px" height="29px" iconSize={15} onClick={onRemove} />
       </div>
 
       <div
-      className="absolute bottom-0 left-0 right-0 flex bg-[var(--gray)] h-[29px]" 
+      className="absolute bottom-0 left-0 right-0 flex bg-[var(--gray)]" 
+      style={{height: height}}
       onContextMenu={e => {
         e.preventDefault();
         setControls(!controls);
@@ -35,7 +37,7 @@ export default function Truss({ width, top, left, onRemove, onEdgeRight, onEdgeL
 
         <div 
         className="flex justify-between items-center"
-        style={{width: width + 10}}>
+        style={{width: width + 10, height: height}}>
           <div className="w-[5px] h-[29px] bg-green-500" onClick={onEdgeRight} />
           <p>{width}</p>
           <div className="w-[5px] h-[29px] bg-green-500" onClick={onEdgeLeft} />

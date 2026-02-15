@@ -32,7 +32,7 @@ export default function Button(
       </button>
 
       {text && 
-      <p>{text}</p>}
+      <span>{text}</span>}
     </div>
   );
 }

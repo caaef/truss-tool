@@ -11,6 +11,7 @@ import Image from "next/image";
 
 interface TrussType {
   width: number;
+  height: number;
   top: number;
   right: number;
   left: number;
@@ -69,7 +70,7 @@ export default function NewProject() {
   
   return (
     <>
-      <nav className="nav_left gap-3 mb-4">
+      <nav className="flex gap-3 mb-4">
         <Button title="Go back" icon={ArrowLeftIcon} path="/" />
         <Button title="Show details" icon={InfoIcon} onClick={() => detailsDialog.current?.showModal()} />
         <Button title="Download an image of current canvas" icon={DownloadSimpleIcon} />
@@ -87,6 +88,7 @@ export default function NewProject() {
           return <Truss 
             key={truss.id} 
             width={truss.width} 
+            height={truss.height}
             top={truss.top}
             left={truss.left}
             onRemove={() => removeTruss(truss.id)} 
@@ -103,14 +105,13 @@ export default function NewProject() {
             key={item.id} 
             className="flex m-2" 
             onClick={() => {
-              addTruss({width: item.width, top: 0, right: 0, left: 0, id: generateId()}, selectedTruss)
+              addTruss({width: item.width, height: item.height, top: 0, right: 0, left: 0, id: generateId()}, selectedTruss)
             }}>
-              <Image src={`/truss/${item.width}.jpg`} alt={`Truss ${item.width}`} width={80} height={80} className="rounded-lg" />
+              <Image src={`/truss/${item.id}.jpg`} alt={`Truss ${item.id}`} width={80} height={80} className="rounded-lg" />
 
               <div className="text-left ml-2">
                 <h2>{item.title}</h2>
-                <p>{item.width}x29cm</p>
-                <p>{item.weight}kg</p>
+                <p>{item.width}x{item.height}cm</p>
               </div>              
             </button>
           ))}

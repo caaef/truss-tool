@@ -6,7 +6,9 @@ import { FilePlusIcon } from "@phosphor-icons/react";
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col flex-1 items-center justify-center gap-3">
+      <div className="h-24"></div>
+      
+      <main className="flex flex-col flex-1 items-center justify-center gap-4">
         <h1>Welcome to Truss Tool</h1>
         <Button 
           title="Create a new project" 
@@ -14,7 +16,7 @@ export default function Home() {
           icon={FilePlusIcon} path="/new" />
       </main>
 
-      <footer className="nav_right items-end h-24">
+      <footer className="items-end h-24 flex justify-end">
         <p>Made by <a href="https://github.com/caaef" target="_blank">caef</a></p>
       </footer>
     </>
